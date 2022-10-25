@@ -47,6 +47,50 @@ class ExecutionQueueBuilder(val tasks: Map<String, Task>) {
         unfoldStack()
     }
 
+    fun execute() : Int {
+        if (executionQueue.isEmpty())
+            return 0
+
+        println("Executing...")
+        var lastCode = 0
+        val it = executionQueue.iterator()
+        while(lastCode == 0 && it.hasNext()) {
+            lastCode = it.next().execute()
+        }
+
+        if (lastCode == 0)
+            println("Finished!")
+        else
+            println("Failed!")
+
+        return lastCode
+    }
+
+    override fun toString() : String {
+        if (!failed) {
+            if (executionQueue.isEmpty())
+                return "Nothing to execute"
+
+            val sb = StringBuilder().appendLine("Execution queue:")
+            executionQueue.forEach { task ->
+                sb.append("  > ").append(task).appendLine()
+            }
+            return sb.toString()
+        }
+
+        val sb = StringBuilder()
+
+        sb.appendLine("Error(s) occurred while building dependencies:")
+        errors.forEach { sb.append("  - ").appendLine(it) }
+
+        if (dependencyStack.isNotEmpty()) {
+            sb.appendLine("Dependency stack:")
+            dependencyStack.forEach { sb.append("  - ").appendLine(it) }
+        }
+
+        return sb.toString()
+    }
+
     private fun stackContains(name: String) : Boolean {
         return dependencyStack.find{ it.name == name } != null
     }

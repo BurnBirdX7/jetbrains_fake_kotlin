@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
 
     if (args.isEmpty()) {
         println("Not enough arguments!")
-        exitProcess(-1)
+        exitProcess(1)
     }
 
     val res = Task.fromFile(Path.of("fake.yaml"))
@@ -18,19 +18,9 @@ fun main(args: Array<String>) {
         args.forEach { eqb.build(it) }
 
         if (eqb.failed) {
-            System.err.println("EQB failed... List of errors:")
-            eqb.errors.forEach { System.err.println("\t - $it") }
-
-            if (eqb.dependencyStack.isNotEmpty()) {
-                System.err.println("Dependency stack")
-                eqb.errors.forEach { System.err.println("\t - $it") }
-            }
-            exitProcess(-2)
+            exitProcess(2)
         }
 
-        println("Queue:")
-        eqb.executionQueue.forEach { task ->
-            println(" > [${task.name}]: ${task.run}")
-        }
+        exitProcess(eqb.execute())
     }
 }

@@ -6,8 +6,7 @@ import kotlin.io.path.notExists
 
 class Task (val name: String,
             val run: String,
-            val dependencies: List<String>? = null
-        )
+            val dependencies: List<String>? = null)
 {
     var time: FileTime? = null
     var enqueued: Boolean = false
@@ -20,7 +19,6 @@ class Task (val name: String,
             if (path.exists()) {
                 time = path.getLastModifiedTime()
             }
-
         }
     }
 
@@ -62,8 +60,39 @@ class Task (val name: String,
     }
 
     fun evaluateTaskDependency(task: Task) {
+        if (!hasDependencies())
+            throw RuntimeException("This task doesn't have any dependencies...")
 
+        if (task.status == Status.ENQUEUED || this < task) {
+            dependencyIsUpdated = true
+        }
     }
+
+    fun execute() : Int {
+        println("  > $this")
+
+        val runArray = run.split("\\s".toRegex()).toTypedArray()
+        val pb = ProcessBuilder(*runArray)
+            .redirectOutput(ProcessBuilder.Redirect.INHERIT)
+            .redirectError(ProcessBuilder.Redirect.INHERIT)
+            .redirectInput(ProcessBuilder.Redirect.INHERIT)
+
+        return pb.start().waitFor()
+    }
+
+    override fun toString() : String {
+        return "[$name]: $run"
+    }
+
+    private operator fun compareTo(task: Task): Int {
+        if (!this.targetExists())
+            return 1
+        if (!task.targetExists())
+            return -1
+
+        return this.targetTime().compareTo(task.targetTime())
+    }
+
 
     companion object {
         fun fromFile(path: Path) : Map<String, Task>? {
