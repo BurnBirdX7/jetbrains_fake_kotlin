@@ -84,7 +84,7 @@ class Task (val name: String,
         return "[$name]: $run"
     }
 
-    private operator fun compareTo(task: Task): Int {
+    operator fun compareTo(task: Task): Int {
         if (!this.targetExists())
             return 1
         if (!task.targetExists())
