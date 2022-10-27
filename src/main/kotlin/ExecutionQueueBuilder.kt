@@ -20,6 +20,10 @@ class ExecutionQueueBuilder(val tasks: Map<String, Task>) {
             return
         }
 
+        if (rootTask.processed) {
+            return
+        }
+
         if (rootDeps != null) {
             processingQueue.addAll(rootDeps.map { it to rootTask })
         }
