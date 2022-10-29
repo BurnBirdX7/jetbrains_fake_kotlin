@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test
 import java.lang.RuntimeException
 import java.nio.file.Files
 import java.nio.file.Path
+import kotlin.io.path.exists
 import kotlin.io.path.notExists
 import kotlin.io.path.toPath
 
@@ -84,14 +85,21 @@ internal class TaskTest {
 
         val resource = this::class.java.getResource("/test1.yaml")
         val uri = resource?.toURI()
-        val path = uri?.toPath()
+        val path_ = uri?.toPath()
 
         println(resource)
         println(uri)
+        println(path_)
+
+        val path = Path.of("test1.yaml");
         println(path)
+        val path__ = Path.of("src/test/resources/test1.yaml")
+        print(path__)
+        println("  ... ${path__.exists()}")
+        assertTrue(path.exists())
 
         assertNotNull(path)
-        val tasks = Task.fromFile(path!!)
+        val tasks = Task.fromFile(path)
         val noTarget = tasks["no_target"]
         assertNotNull(noTarget)
         assertEquals(noTarget!!.status, Task.Status.NEEDS_UPDATING)
