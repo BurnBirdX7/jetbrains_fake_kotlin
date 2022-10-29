@@ -2,7 +2,13 @@
 
 Fake build system
 
-Brother project of [fake-cpp](https://github.com/BurnBirdX7/jetbrains_fake_cpp).
+Kotlin implementation of **fake** build system. There's also C++ implementation:
+[fake-cpp](https://github.com/BurnBirdX7/jetbrains_fake_cpp). Have a look!
+
+## Navigate
+* [Use](#Use)
+* [Build and Test](#Build-and-test)
+* [All of this but with **fake**](#All-with-fake)
 
 ## Use
 
@@ -18,9 +24,10 @@ Execute `fake <task> [tasks...]` in directory with `fake.yaml`.
     If **target** isn't specified, task is executed unconditionally
 
 Some details:
- * If at least one task in `fake.yaml` is *malformed* - **fake** fails
-   * A task considered *malformed* when non-optional property is undefined or defined incorrectly,
-   or not property has name other than `run`/`dependencies`/`target`
+ * If at least one task in `fake.yaml` is *malformed* - **fake** fails immediately
+   * A task considered *malformed* when non-optional property is undefined or any property is defined incorrectly,
+   or property has name other than `run`/`dependencies`/`target`
+   * *(Note: **fake-cpp** behaves differently)*
  * If a task listed in dependencies isn't in `fake.yaml`, **fake** will try to find a file with the same name
    * If such file can't be found, **fake** remembers this as an error and continues processing.
      **fake** will fail in the end.\
@@ -121,3 +128,20 @@ fake [tasks]
 ./gradlew distTar  # Creates tar-archive for distribution
 ./gradlew jar      # Creates .jar lib (located in build/lib)
 ```
+
+## All with fake
+
+You can build **fake** using **fake** but...
+
+`fake.yaml` would just mirror Gradle tasks
+```yaml
+build:
+  run: ./gradlew jar
+
+test:
+  run: ./gradlew test
+  
+# etc.
+```
+
+But you can [build ***fake-cpp*** with ***fake-kotlin***](https://github.com/BurnBirdX7/jetbrains_fake_cpp#All-with-fake)
