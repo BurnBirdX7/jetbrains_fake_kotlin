@@ -81,7 +81,15 @@ internal class TaskTest {
 
     @Test
     fun noTargetStatus() {
-        val path = this::class.java.getResource("/test1.yaml")?.toURI()?.toPath()
+
+        val resource = this::class.java.getResource("/test1.yaml")
+        val uri = resource?.toURI()
+        val path = uri?.toPath()
+
+        println(resource)
+        println(uri)
+        println(path)
+
         assertNotNull(path)
         val tasks = Task.fromFile(path!!)
         val noTarget = tasks["no_target"]
