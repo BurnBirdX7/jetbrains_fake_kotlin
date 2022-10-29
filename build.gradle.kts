@@ -36,6 +36,7 @@ sourceSets {
         if (resources.srcDirs.isEmpty()) {
             resources.srcDir("src/test/resources")
         }
+        project.logger.lifecycle("SRCs: " + resources.srcDirs.joinToString(", "))
     }
 }
 
