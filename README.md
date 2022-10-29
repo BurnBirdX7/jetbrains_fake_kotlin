@@ -4,7 +4,7 @@ Fake build system
 
 Brother project of [fake-cpp](https://github.com/BurnBirdX7/jetbrains_fake_cpp).
 
-## Using
+## Use
 
 Execute `fake <task> [tasks...]` in directory with `fake.yaml`.
 
@@ -58,4 +58,47 @@ exec:
 
 ~/my_project$ rm ./main.o
 ~/my_project$ fake exec  # Will execute all tasks
+```
+
+## Build and test
+
+If you run
+```shell
+./gradlew build
+```
+
+it will do pretty much everything.... it will **build** the application it will run **unit-tests**
+and will also produce distributable archives.
+
+Distributable archives are placed in `build/distributions` directory.
+Each archive contains `fake-1.0/lib` directory that contains the program compiled into .jar library and dependencies,
+and `fake-1.0/bin` that contains shell and batch scripts that launch the application.
+
+You can run **fake** from build directory with:
+```shell
+./gradlew run --args [args] 
+```
+
+You can install **fake** on your system by unpacking one of distribution into directory which listed in your `PATH`
+(`bin` directory of the archive needs to be in `PATH`).
+Or unpack elsewhere and add `[unpack-location]/fake-1.0/bin` to your `PATH`.
+
+Or you can run:
+```shell
+./gradlew installDist
+```
+And add `[project root]/build/install/fake/bin` to your `PATH`.
+
+If **fake** is listed in your `PATH` you can execute anywhere with
+```shell
+fake [tasks]
+```
+
+### Useful Gradle tasks
+```shell
+./gradlew test     # Launches tests
+./gradlew build    # Builds, archives, tests
+./gradlew distZip  # Creates zip-archive for distribution
+./gradlew distTar  # Creates tar-archive for distribution
+./gradlew jar      # Creates .jar lib (located in build/lib)
 ```

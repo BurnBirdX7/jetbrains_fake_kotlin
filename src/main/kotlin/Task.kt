@@ -69,16 +69,16 @@ class Task (val name: String,
     }
 
     fun execute() : Int {
-        println("  > $this")
         val isWindows = System.getProperty("os.name").lowercase().startsWith("windows")
 
         val runCmd = when (isWindows) {
-            true -> "cmd.exe /C $run"
-            else -> run
+            true -> listOf("cmd.exe", "/C", run)
+            else -> listOf("sh", "-c",  run)
         }
 
-        val runArray = runCmd.split("\\s".toRegex()).toTypedArray()
-        val pb = ProcessBuilder(*runArray)
+        println("  > [${this.name}]: $runCmd")
+
+        val pb = ProcessBuilder(runCmd)
             .redirectOutput(ProcessBuilder.Redirect.INHERIT)
             .redirectError(ProcessBuilder.Redirect.INHERIT)
             .redirectInput(ProcessBuilder.Redirect.INHERIT)

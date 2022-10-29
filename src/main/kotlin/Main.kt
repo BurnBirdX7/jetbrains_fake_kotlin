@@ -23,6 +23,7 @@ fun main(args: Array<String>) {
         args.forEach { eqb.build(it) }
 
         if (eqb.failed) {
+            println(eqb)
             exitProcess(2)
         }
         exitProcess(eqb.execute())

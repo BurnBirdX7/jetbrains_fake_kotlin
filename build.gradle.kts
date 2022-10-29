@@ -5,8 +5,8 @@ plugins {
     application
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "com.jetbrains.fake"
+version = "1.0"
 
 repositories {
     mavenCentral()

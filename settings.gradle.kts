@@ -1,3 +1,3 @@
 
-rootProject.name = "jetbrains_fake_kotlin"
+rootProject.name = "fake"
 
