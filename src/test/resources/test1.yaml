@@ -1,0 +1,25 @@
+
+no_target:
+  dependencies:
+     - some_task
+  run: g++ --version
+
+no_dependencies:
+  target: no_dependencies.out
+  run: g++ --version
+
+one_dependency_list:
+  target: one_dependency.out
+  run: g++ --version
+  dependencies:
+    - one_dependency.txt
+
+four_dependencies:
+  target: many_dependencies.out
+  run: g++ --version
+  dependencies:
+    - dep1
+    - dep2
+    - dep3
+    - dep4
+

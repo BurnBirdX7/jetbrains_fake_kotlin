@@ -1,0 +1,23 @@
+incorrect_task1:
+  random_property: hello, world
+
+incorrect_task2:
+  - elem1
+  - elem2
+
+incorrect_task3: just some string...
+
+one_dependency_scalar:
+  target: one_dependency.out
+  run: g++ --version
+  dependencies: one_dependency.txt
+
+correct_task:
+  run: echo "Hello"
+  dependencies:
+    - incorrect_task2
+
+no_run:
+  dependencies:
+    - some_task
+  target: no_run.out
