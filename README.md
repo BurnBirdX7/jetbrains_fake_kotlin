@@ -20,10 +20,10 @@ Execute `fake <task> [tasks...]` in directory with `fake.yaml`.
 Some details:
  * If at least one task in `fake.yaml` is *malformed* - **fake** fails
    * A task considered *malformed* when non-optional property is undefined or defined incorrectly,
-   or not listed property is defined
- * If task listed in dependencies isn't in `fake.yaml`, **fake** will try to find file with the same name
-   * If file cannot be found, **fake** remembers this as error and continues processing of the dependencies.
-     **fake** will fail at the end.\
+   or not property has name other than `run`/`dependencies`/`target`
+ * If a task listed in dependencies isn't in `fake.yaml`, **fake** will try to find a file with the same name
+   * If such file can't be found, **fake** remembers this as an error and continues processing.
+     **fake** will fail in the end.\
      This behaviour allows to detect multiple missing dependencies with one execution of **fake**.
  * If there's a cyclic dependency (`task1 -> task2 -> task3 -> task1`). **fake** immediately fails
  * When **fake** fails, list of occurred errors is printed.
@@ -32,7 +32,8 @@ Example:
 ```yaml
 # fake.yaml
 compile:
-  dependencies: main.cpp
+  dependencies:
+    - main.cpp
   target: main.o
   run: g++ -c main.cpp -o main.o
 
@@ -50,14 +51,32 @@ exec:
 
 ```shell
 # Shell
-~/my_project$ fake exec  # Will execute all tasks
-~/my_project$ fake exec  # Will execute only `exec`
+~/my_project$ fake exec   # Executes all tasks
+Executing...
+  > [compile]: [sh, -c, g++ -c main.cpp -o main.o]  # Print of 'sh' and '-c' is intentional
+  > [build]: [sh, -c, g++ main.o -o main]
+  > [exec]: [sh, -c, ./main]
+Finished!
 
-~/my_project$ rm ./main
-~/my_project$ fake exec  # Will execute `compile` and `exec`
+~/my_project$ fake exec   # Executes only 'exec'
+Executing...
+  > [exec]: [sh, -c, ./main]
+Finished!
 
-~/my_project$ rm ./main.o
-~/my_project$ fake exec  # Will execute all tasks
+~/my_project$ rm ./main   # Delete target of 'build'
+~/my_project$ fake exec   # Executes 'compile' and 'exec'
+Executing...
+  > [build]: [sh, -c, g++ main.o -o main]
+  > [exec]: [sh, -c, ./main]
+Finished!
+
+~/my_project$ rm ./main.o # Delete target of 'compile'
+~/my_project$ fake exec   # Executes all tasks
+Executing...
+  > [compile]: [sh, -c, g++ -c main.cpp -o main.o]
+  > [build]: [sh, -c, g++ main.o -o main]
+  > [exec]: [sh, -c, ./main]
+Finished!
 ```
 
 ## Build and test

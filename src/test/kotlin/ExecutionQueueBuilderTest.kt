@@ -121,5 +121,4 @@ class ExecutionQueueBuilderTest {
         assertFalse(builder.failed)
         assertEquals(builder.executionQueue.size, TASKS)
     }
-
 }

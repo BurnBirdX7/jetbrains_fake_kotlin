@@ -7,6 +7,7 @@ import kotlin.system.exitProcess
 fun main(args: Array<String>) {
     if (args.isEmpty()) {
         println("Not enough arguments!")
+        println("fake <task> [tasks...]")
         exitProcess(1)
     }
 
