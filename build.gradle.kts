@@ -28,8 +28,14 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Test> {
-    this.testLogging {
-        this.showStandardStreams = true
+    this.testLogging.showStandardStreams= true
+}
+
+sourceSets {
+    test {
+        if (resources.srcDirs.isEmpty()) {
+            resources.srcDir("src/test/resources")
+        }
     }
 }
 
