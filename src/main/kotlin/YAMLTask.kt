@@ -2,8 +2,13 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.exc.MismatchedInputException
 import com.fasterxml.jackson.dataformat.yaml.*
 import com.fasterxml.jackson.module.kotlin.*
+import java.lang.Exception
 import java.nio.file.Files
 import java.nio.file.Path
+
+
+class IncorrectYAML(message: String, cause: Throwable) : Exception(message, cause)
+
 
 data class YAMLTask (val run: String,
                      val target: String? = null,
@@ -11,13 +16,12 @@ data class YAMLTask (val run: String,
 {
 
     companion object {
-        fun fromFile(path: Path) : Map<String, YAMLTask>? {
+        fun fromFile(path: Path) : Map<String, YAMLTask> {
             val mapper = ObjectMapper(YAMLFactory()).registerKotlinModule()
 
-            var res: HashMap<String, YAMLTask>? = null
             try {
                 Files.newBufferedReader(path).use {
-                    res = mapper.readValue(it)
+                    return mapper.readValue(it)
                 }
             }
             catch (e: MismatchedInputException) {
@@ -32,12 +36,9 @@ data class YAMLTask (val run: String,
                     }
                 }
 
-                System.err.println("Error occurred while parsing configuration file")
-                System.err.println("Occurred on: $position")
-                System.err.println("When processing: $sb")
+                val msg = "Occurred on: $position, When processing: $sb"
+                throw IncorrectYAML(msg, e)
             }
-
-            return res
         }
     }
 }

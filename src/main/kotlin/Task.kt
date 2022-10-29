@@ -95,8 +95,8 @@ class Task (val name: String,
 
 
     companion object {
-        fun fromFile(path: Path) : Map<String, Task>? {
-            val res = YAMLTask.fromFile(path) ?: return null
+        fun fromFile(path: Path) : Map<String, Task> {
+            val res = YAMLTask.fromFile(path)
             return res.mapValues { (name, yamlTask) -> Task(name, yamlTask) }
         }
     }

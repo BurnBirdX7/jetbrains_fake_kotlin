@@ -16,9 +16,8 @@ fun main(args: Array<String>) {
         exitProcess(1)
     }
 
-    val res = Task.fromFile(path)
-
-    if (res != null) {
+    try {
+        val res = Task.fromFile(path)
         val eqb = ExecutionQueueBuilder(res)
 
         args.forEach { eqb.build(it) }
@@ -26,7 +25,10 @@ fun main(args: Array<String>) {
         if (eqb.failed) {
             exitProcess(2)
         }
-
         exitProcess(eqb.execute())
+    }
+    catch (e : IncorrectYAML) {
+        System.err.println("Error occurred when parsing YAML")
+        System.err.println(e.message)
     }
 }

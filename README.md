@@ -2,7 +2,7 @@
 
 Fake build system
 
-Brother project of [fake-cpp](https://github.com/BurnBirdX7/jetbrains_fake_cpp). Behaves a bit differently.
+Brother project of [fake-cpp](https://github.com/BurnBirdX7/jetbrains_fake_cpp).
 
 ## Using
 
@@ -18,6 +18,9 @@ Execute `fake <task> [tasks...]` in directory with `fake.yaml`.
     If **target** isn't specified, task is executed unconditionally
 
 Some details:
+ * If at least one task in `fake.yaml` is *malformed* - **fake** fails
+   * A task considered *malformed* when non-optional property is undefined or defined incorrectly,
+   or not listed property is defined
  * If task listed in dependencies isn't in `fake.yaml`, **fake** will try to find file with the same name
    * If file cannot be found, **fake** remembers this as error and continues processing of the dependencies.
      **fake** will fail at the end.\
