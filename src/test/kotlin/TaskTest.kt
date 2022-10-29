@@ -117,7 +117,6 @@ internal class TaskTest {
         assertEquals(noDep.status, Task.Status.UP_TO_DATE)
 
         Files.delete(pathToOut)
-
     }
 
     @Test
@@ -142,7 +141,6 @@ internal class TaskTest {
         val path = this::class.java.getResource("/test1.yaml")?.toURI()?.toPath()
         assertNotNull(path)
         val tasks = Task.fromFile(path!!)
-
 
         val task = tasks["no_dependencies"]!!
         val taskD1 = tasks["one_dependency_list"]!!
@@ -176,5 +174,4 @@ internal class TaskTest {
         Files.delete(path1)
         Files.delete(path2)
     }
-
 }

@@ -1,0 +1,805 @@
+task_0:
+  run: ls
+  target: task_0
+  dependencies:
+    - test2.yaml
+task_1_right:
+  run: ls
+  target: task_1_right
+  dependencies:
+    - task_0
+task_1_left:
+  run: ls
+  target: task_1_left
+  dependencies:
+    - task_0
+task_1:
+  run: ls
+  target: task_1
+  dependencies:
+    - task_1_left
+    - task_1_right
+task_2_right:
+  run: ls
+  target: task_2_right
+  dependencies:
+    - task_1
+task_2_left:
+  run: ls
+  target: task_2_left
+  dependencies:
+    - task_1
+task_2:
+  run: ls
+  target: task_2
+  dependencies:
+    - task_2_left
+    - task_2_right
+task_3_right:
+  run: ls
+  target: task_3_right
+  dependencies:
+    - task_2
+task_3_left:
+  run: ls
+  target: task_3_left
+  dependencies:
+    - task_2
+task_3:
+  run: ls
+  target: task_3
+  dependencies:
+    - task_3_left
+    - task_3_right
+task_4_right:
+  run: ls
+  target: task_4_right
+  dependencies:
+    - task_3
+task_4_left:
+  run: ls
+  target: task_4_left
+  dependencies:
+    - task_3
+task_4:
+  run: ls
+  target: task_4
+  dependencies:
+    - task_4_left
+    - task_4_right
+task_5_right:
+  run: ls
+  target: task_5_right
+  dependencies:
+    - task_4
+task_5_left:
+  run: ls
+  target: task_5_left
+  dependencies:
+    - task_4
+task_5:
+  run: ls
+  target: task_5
+  dependencies:
+    - task_5_left
+    - task_5_right
+task_6_right:
+  run: ls
+  target: task_6_right
+  dependencies:
+    - task_5
+task_6_left:
+  run: ls
+  target: task_6_left
+  dependencies:
+    - task_5
+task_6:
+  run: ls
+  target: task_6
+  dependencies:
+    - task_6_left
+    - task_6_right
+task_7_right:
+  run: ls
+  target: task_7_right
+  dependencies:
+    - task_6
+task_7_left:
+  run: ls
+  target: task_7_left
+  dependencies:
+    - task_6
+task_7:
+  run: ls
+  target: task_7
+  dependencies:
+    - task_7_left
+    - task_7_right
+task_8_right:
+  run: ls
+  target: task_8_right
+  dependencies:
+    - task_7
+task_8_left:
+  run: ls
+  target: task_8_left
+  dependencies:
+    - task_7
+task_8:
+  run: ls
+  target: task_8
+  dependencies:
+    - task_8_left
+    - task_8_right
+task_9_right:
+  run: ls
+  target: task_9_right
+  dependencies:
+    - task_8
+task_9_left:
+  run: ls
+  target: task_9_left
+  dependencies:
+    - task_8
+task_9:
+  run: ls
+  target: task_9
+  dependencies:
+    - task_9_left
+    - task_9_right
+task_10_right:
+  run: ls
+  target: task_10_right
+  dependencies:
+    - task_9
+task_10_left:
+  run: ls
+  target: task_10_left
+  dependencies:
+    - task_9
+task_10:
+  run: ls
+  target: task_10
+  dependencies:
+    - task_10_left
+    - task_10_right
+task_11_right:
+  run: ls
+  target: task_11_right
+  dependencies:
+    - task_10
+task_11_left:
+  run: ls
+  target: task_11_left
+  dependencies:
+    - task_10
+task_11:
+  run: ls
+  target: task_11
+  dependencies:
+    - task_11_left
+    - task_11_right
+task_12_right:
+  run: ls
+  target: task_12_right
+  dependencies:
+    - task_11
+task_12_left:
+  run: ls
+  target: task_12_left
+  dependencies:
+    - task_11
+task_12:
+  run: ls
+  target: task_12
+  dependencies:
+    - task_12_left
+    - task_12_right
+task_13_right:
+  run: ls
+  target: task_13_right
+  dependencies:
+    - task_12
+task_13_left:
+  run: ls
+  target: task_13_left
+  dependencies:
+    - task_12
+task_13:
+  run: ls
+  target: task_13
+  dependencies:
+    - task_13_left
+    - task_13_right
+task_14_right:
+  run: ls
+  target: task_14_right
+  dependencies:
+    - task_13
+task_14_left:
+  run: ls
+  target: task_14_left
+  dependencies:
+    - task_13
+task_14:
+  run: ls
+  target: task_14
+  dependencies:
+    - task_14_left
+    - task_14_right
+task_15_right:
+  run: ls
+  target: task_15_right
+  dependencies:
+    - task_14
+task_15_left:
+  run: ls
+  target: task_15_left
+  dependencies:
+    - task_14
+task_15:
+  run: ls
+  target: task_15
+  dependencies:
+    - task_15_left
+    - task_15_right
+task_16_right:
+  run: ls
+  target: task_16_right
+  dependencies:
+    - task_15
+task_16_left:
+  run: ls
+  target: task_16_left
+  dependencies:
+    - task_15
+task_16:
+  run: ls
+  target: task_16
+  dependencies:
+    - task_16_left
+    - task_16_right
+task_17_right:
+  run: ls
+  target: task_17_right
+  dependencies:
+    - task_16
+task_17_left:
+  run: ls
+  target: task_17_left
+  dependencies:
+    - task_16
+task_17:
+  run: ls
+  target: task_17
+  dependencies:
+    - task_17_left
+    - task_17_right
+task_18_right:
+  run: ls
+  target: task_18_right
+  dependencies:
+    - task_17
+task_18_left:
+  run: ls
+  target: task_18_left
+  dependencies:
+    - task_17
+task_18:
+  run: ls
+  target: task_18
+  dependencies:
+    - task_18_left
+    - task_18_right
+task_19_right:
+  run: ls
+  target: task_19_right
+  dependencies:
+    - task_18
+task_19_left:
+  run: ls
+  target: task_19_left
+  dependencies:
+    - task_18
+task_19:
+  run: ls
+  target: task_19
+  dependencies:
+    - task_19_left
+    - task_19_right
+task_20_right:
+  run: ls
+  target: task_20_right
+  dependencies:
+    - task_19
+task_20_left:
+  run: ls
+  target: task_20_left
+  dependencies:
+    - task_19
+task_20:
+  run: ls
+  target: task_20
+  dependencies:
+    - task_20_left
+    - task_20_right
+task_21_right:
+  run: ls
+  target: task_21_right
+  dependencies:
+    - task_20
+task_21_left:
+  run: ls
+  target: task_21_left
+  dependencies:
+    - task_20
+task_21:
+  run: ls
+  target: task_21
+  dependencies:
+    - task_21_left
+    - task_21_right
+task_22_right:
+  run: ls
+  target: task_22_right
+  dependencies:
+    - task_21
+task_22_left:
+  run: ls
+  target: task_22_left
+  dependencies:
+    - task_21
+task_22:
+  run: ls
+  target: task_22
+  dependencies:
+    - task_22_left
+    - task_22_right
+task_23_right:
+  run: ls
+  target: task_23_right
+  dependencies:
+    - task_22
+task_23_left:
+  run: ls
+  target: task_23_left
+  dependencies:
+    - task_22
+task_23:
+  run: ls
+  target: task_23
+  dependencies:
+    - task_23_left
+    - task_23_right
+task_24_right:
+  run: ls
+  target: task_24_right
+  dependencies:
+    - task_23
+task_24_left:
+  run: ls
+  target: task_24_left
+  dependencies:
+    - task_23
+task_24:
+  run: ls
+  target: task_24
+  dependencies:
+    - task_24_left
+    - task_24_right
+task_25_right:
+  run: ls
+  target: task_25_right
+  dependencies:
+    - task_24
+task_25_left:
+  run: ls
+  target: task_25_left
+  dependencies:
+    - task_24
+task_25:
+  run: ls
+  target: task_25
+  dependencies:
+    - task_25_left
+    - task_25_right
+task_26_right:
+  run: ls
+  target: task_26_right
+  dependencies:
+    - task_25
+task_26_left:
+  run: ls
+  target: task_26_left
+  dependencies:
+    - task_25
+task_26:
+  run: ls
+  target: task_26
+  dependencies:
+    - task_26_left
+    - task_26_right
+task_27_right:
+  run: ls
+  target: task_27_right
+  dependencies:
+    - task_26
+task_27_left:
+  run: ls
+  target: task_27_left
+  dependencies:
+    - task_26
+task_27:
+  run: ls
+  target: task_27
+  dependencies:
+    - task_27_left
+    - task_27_right
+task_28_right:
+  run: ls
+  target: task_28_right
+  dependencies:
+    - task_27
+task_28_left:
+  run: ls
+  target: task_28_left
+  dependencies:
+    - task_27
+task_28:
+  run: ls
+  target: task_28
+  dependencies:
+    - task_28_left
+    - task_28_right
+task_29_right:
+  run: ls
+  target: task_29_right
+  dependencies:
+    - task_28
+task_29_left:
+  run: ls
+  target: task_29_left
+  dependencies:
+    - task_28
+task_29:
+  run: ls
+  target: task_29
+  dependencies:
+    - task_29_left
+    - task_29_right
+task_30_right:
+  run: ls
+  target: task_30_right
+  dependencies:
+    - task_29
+task_30_left:
+  run: ls
+  target: task_30_left
+  dependencies:
+    - task_29
+task_30:
+  run: ls
+  target: task_30
+  dependencies:
+    - task_30_left
+    - task_30_right
+task_31_right:
+  run: ls
+  target: task_31_right
+  dependencies:
+    - task_30
+task_31_left:
+  run: ls
+  target: task_31_left
+  dependencies:
+    - task_30
+task_31:
+  run: ls
+  target: task_31
+  dependencies:
+    - task_31_left
+    - task_31_right
+task_32_right:
+  run: ls
+  target: task_32_right
+  dependencies:
+    - task_31
+task_32_left:
+  run: ls
+  target: task_32_left
+  dependencies:
+    - task_31
+task_32:
+  run: ls
+  target: task_32
+  dependencies:
+    - task_32_left
+    - task_32_right
+task_33_right:
+  run: ls
+  target: task_33_right
+  dependencies:
+    - task_32
+task_33_left:
+  run: ls
+  target: task_33_left
+  dependencies:
+    - task_32
+task_33:
+  run: ls
+  target: task_33
+  dependencies:
+    - task_33_left
+    - task_33_right
+task_34_right:
+  run: ls
+  target: task_34_right
+  dependencies:
+    - task_33
+task_34_left:
+  run: ls
+  target: task_34_left
+  dependencies:
+    - task_33
+task_34:
+  run: ls
+  target: task_34
+  dependencies:
+    - task_34_left
+    - task_34_right
+task_35_right:
+  run: ls
+  target: task_35_right
+  dependencies:
+    - task_34
+task_35_left:
+  run: ls
+  target: task_35_left
+  dependencies:
+    - task_34
+task_35:
+  run: ls
+  target: task_35
+  dependencies:
+    - task_35_left
+    - task_35_right
+task_36_right:
+  run: ls
+  target: task_36_right
+  dependencies:
+    - task_35
+task_36_left:
+  run: ls
+  target: task_36_left
+  dependencies:
+    - task_35
+task_36:
+  run: ls
+  target: task_36
+  dependencies:
+    - task_36_left
+    - task_36_right
+task_37_right:
+  run: ls
+  target: task_37_right
+  dependencies:
+    - task_36
+task_37_left:
+  run: ls
+  target: task_37_left
+  dependencies:
+    - task_36
+task_37:
+  run: ls
+  target: task_37
+  dependencies:
+    - task_37_left
+    - task_37_right
+task_38_right:
+  run: ls
+  target: task_38_right
+  dependencies:
+    - task_37
+task_38_left:
+  run: ls
+  target: task_38_left
+  dependencies:
+    - task_37
+task_38:
+  run: ls
+  target: task_38
+  dependencies:
+    - task_38_left
+    - task_38_right
+task_39_right:
+  run: ls
+  target: task_39_right
+  dependencies:
+    - task_38
+task_39_left:
+  run: ls
+  target: task_39_left
+  dependencies:
+    - task_38
+task_39:
+  run: ls
+  target: task_39
+  dependencies:
+    - task_39_left
+    - task_39_right
+task_40_right:
+  run: ls
+  target: task_40_right
+  dependencies:
+    - task_39
+task_40_left:
+  run: ls
+  target: task_40_left
+  dependencies:
+    - task_39
+task_40:
+  run: ls
+  target: task_40
+  dependencies:
+    - task_40_left
+    - task_40_right
+task_41_right:
+  run: ls
+  target: task_41_right
+  dependencies:
+    - task_40
+task_41_left:
+  run: ls
+  target: task_41_left
+  dependencies:
+    - task_40
+task_41:
+  run: ls
+  target: task_41
+  dependencies:
+    - task_41_left
+    - task_41_right
+task_42_right:
+  run: ls
+  target: task_42_right
+  dependencies:
+    - task_41
+task_42_left:
+  run: ls
+  target: task_42_left
+  dependencies:
+    - task_41
+task_42:
+  run: ls
+  target: task_42
+  dependencies:
+    - task_42_left
+    - task_42_right
+task_43_right:
+  run: ls
+  target: task_43_right
+  dependencies:
+    - task_42
+task_43_left:
+  run: ls
+  target: task_43_left
+  dependencies:
+    - task_42
+task_43:
+  run: ls
+  target: task_43
+  dependencies:
+    - task_43_left
+    - task_43_right
+task_44_right:
+  run: ls
+  target: task_44_right
+  dependencies:
+    - task_43
+task_44_left:
+  run: ls
+  target: task_44_left
+  dependencies:
+    - task_43
+task_44:
+  run: ls
+  target: task_44
+  dependencies:
+    - task_44_left
+    - task_44_right
+task_45_right:
+  run: ls
+  target: task_45_right
+  dependencies:
+    - task_44
+task_45_left:
+  run: ls
+  target: task_45_left
+  dependencies:
+    - task_44
+task_45:
+  run: ls
+  target: task_45
+  dependencies:
+    - task_45_left
+    - task_45_right
+task_46_right:
+  run: ls
+  target: task_46_right
+  dependencies:
+    - task_45
+task_46_left:
+  run: ls
+  target: task_46_left
+  dependencies:
+    - task_45
+task_46:
+  run: ls
+  target: task_46
+  dependencies:
+    - task_46_left
+    - task_46_right
+task_47_right:
+  run: ls
+  target: task_47_right
+  dependencies:
+    - task_46
+task_47_left:
+  run: ls
+  target: task_47_left
+  dependencies:
+    - task_46
+task_47:
+  run: ls
+  target: task_47
+  dependencies:
+    - task_47_left
+    - task_47_right
+task_48_right:
+  run: ls
+  target: task_48_right
+  dependencies:
+    - task_47
+task_48_left:
+  run: ls
+  target: task_48_left
+  dependencies:
+    - task_47
+task_48:
+  run: ls
+  target: task_48
+  dependencies:
+    - task_48_left
+    - task_48_right
+task_49_right:
+  run: ls
+  target: task_49_right
+  dependencies:
+    - task_48
+task_49_left:
+  run: ls
+  target: task_49_left
+  dependencies:
+    - task_48
+task_49:
+  run: ls
+  target: task_49
+  dependencies:
+    - task_49_left
+    - task_49_right
+task_50_right:
+  run: ls
+  target: task_50_right
+  dependencies:
+    - task_49
+task_50_left:
+  run: ls
+  target: task_50_left
+  dependencies:
+    - task_49
+task_50:
+  run: ls
+  target: task_50
+  dependencies:
+    - task_50_left
+    - task_50_right

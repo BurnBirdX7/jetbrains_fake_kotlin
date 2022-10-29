@@ -2,11 +2,12 @@ import java.nio.file.Path
 
 class ExecutionQueueBuilder(val tasks: Map<String, Task>) {
 
-    val processingQueue = ArrayDeque<Pair<String /* name */, Task /* parent/dependent */>>()
-    val dependencyStack = ArrayDeque<Task>()
+    private val processingQueue = ArrayDeque<Pair<String /* name */, Task /* parent/dependent */>>()
+    private val dependencyStack = ArrayDeque<Task>()
+    private val errors = mutableListOf<String>()
 
     val executionQueue = mutableListOf<Task>()
-    val errors = mutableListOf<String>()
+    var pathConverter: (String) -> Path = { Path.of(it) }
 
     val failed: Boolean
         get() = errors.isNotEmpty()
@@ -42,7 +43,7 @@ class ExecutionQueueBuilder(val tasks: Map<String, Task>) {
             }
 
             if (!addTask(name)) {
-                if (!parent.evaluateFileDependency(Path.of(name))) {
+                if (!parent.evaluateFileDependency(pathConverter(name))) {
                     addError(name, "Is not a task or a file")
                 }
             }
