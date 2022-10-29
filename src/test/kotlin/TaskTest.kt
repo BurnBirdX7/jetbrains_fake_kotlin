@@ -57,7 +57,7 @@ internal class TaskTest {
         assertNotNull(pathToIncorrectYAML)
         assertThrows(IncorrectYAML::class.java) { Task.fromFile(pathToIncorrectYAML!!) }
 
-        val path = this::class.java.getResource("test1.yaml")?.toURI()?.toPath()
+        val path = this::class.java.getResource("/test1.yaml")?.toURI()?.toPath()
         assertNotNull(path)
         val tasks = Task.fromFile(path!!)
 
@@ -81,7 +81,7 @@ internal class TaskTest {
 
     @Test
     fun noTargetStatus() {
-        val path = this::class.java.getResource("test1.yaml")?.toURI()?.toPath()
+        val path = this::class.java.getResource("/test1.yaml")?.toURI()?.toPath()
         assertNotNull(path)
         val tasks = Task.fromFile(path!!)
         val noTarget = tasks["no_target"]
@@ -93,7 +93,7 @@ internal class TaskTest {
     fun noDependenciesStatusNoTarget() {
         Files.deleteIfExists(Path.of("no_dependencies.out"))
 
-        val path = this::class.java.getResource("test1.yaml")?.toURI()?.toPath()
+        val path = this::class.java.getResource("/test1.yaml")?.toURI()?.toPath()
         assertNotNull(path)
         val tasks = Task.fromFile(path!!)
 
@@ -107,7 +107,7 @@ internal class TaskTest {
     fun noDependenciesStatus() {
         val pathToOut = Files.createFile(Path.of("no_dependencies.out"))
 
-        val path = this::class.java.getResource("test1.yaml")?.toURI()?.toPath()
+        val path = this::class.java.getResource("/test1.yaml")?.toURI()?.toPath()
         assertNotNull(path)
         val tasks = Task.fromFile(path!!)
 
@@ -139,7 +139,7 @@ internal class TaskTest {
     }
     @Test
     fun dependencyEvaluation() {
-        val path = this::class.java.getResource("test1.yaml")?.toURI()?.toPath()
+        val path = this::class.java.getResource("/test1.yaml")?.toURI()?.toPath()
         assertNotNull(path)
         val tasks = Task.fromFile(path!!)
 
